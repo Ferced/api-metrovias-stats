@@ -1,12 +1,15 @@
 import tweepy 
 import datetime
-#Twitter API credentials
+import configparser
 
 class ActualizarTweets:
-    consumer_key = "Ggk57p3drEosK9hTSxbhL3CmA"
-    consumer_secret = "W9GIt7Y6Yh83EuqjsG7MNwtZagejC4lmR0M85DiI6bSo2ag6W2"
-    access_key = "1484656237-LFagke97ZfacrZUb70lFuMoUnltizO9mer45m1K"
-    access_secret = "0DPSpJVwecmmmvoj1SK9PNjWUQaJQHgO9YnYNQYmkpZ7r"
+    #Twitter API credentials
+    config = configparser.ConfigParser()
+    config.read('twitterApi.ini')
+    consumer_key = config['API']['consumer_key']
+    consumer_secret = config['API']['consumer_secret']
+    access_key = config['API']['access_key']
+    access_secret = config['API']['access_secret']
     def nombreLinea(tweet_texto):
         linea=""
         for caracter in tweet_texto:
